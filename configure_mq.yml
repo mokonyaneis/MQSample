@@ -1,0 +1,21 @@
+---
+# Configure MQ object for LAB with static content
+
+- hosts: mqlab
+  roles: 
+    - { role: create_mq_AuthRecs , tags: [ 'crtAuthRecs' ]}
+    - { role: create_mq_ChlAuth , tags: [ 'crtChlAuth' ]}
+    - { role: create_mq_CHLS , tags: [ 'crtChls' ]}
+    - { role: create_mq_Lstn , tags: [ 'crtLtnr' ]}
+    - { role: create_mq_QMGR, tags: [ 'crtQmgr' ]}
+    - { role: create_mq_Qs , tags: [ 'crtQs' ]}
+    - { role: stop_QMGR , tags: [ 'stpQmgr' ]}
+    - { role: start_QMGR , tags: [ 'strQmgr' ]}
+    - { role: stop_Chl , tags: [ 'stpChl' ]}
+    - { role: start_Chl , tags: [ 'strChl' ]}
+    - { role: stop_Listener , tags: [ 'stpLstnr' ]}
+    - { role: start_Listener , tags: [ 'strLstnr' ]}
+    - { role: inhibit_Q_PUT , tags: [ 'inQP' ]}
+    - { role: inhibit_Q_GET , tags: [ 'inQG' ]}
+    - { role: enable_PUT , tags: [ 'enQP' ]}
+    - { role: enable_GET , tags: [ 'enQG' ]}

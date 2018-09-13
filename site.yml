@@ -1,0 +1,4 @@
+---
+# invoking scripts on the work-book
+- import_playbook: configure_mq.yml
+

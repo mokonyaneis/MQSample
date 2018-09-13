@@ -1,0 +1,4 @@
+---
+
+- name: Start MQ queue manager
+  shell: sudo su - mqm -c 'endmqm -i METLAB.QUE.MGR'

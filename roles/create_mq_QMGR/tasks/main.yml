@@ -1,0 +1,24 @@
+---
+
+- name: Copy MQ queue manager config
+  copy:
+   src: METDEV.QUE.MGR.mqsc
+   dest: /var/mqm/config/
+
+
+- name: Create MQ Queue Manager 
+  shell: sudo su - mqm -c 'crtmqm -lc -c "LAB MET queue manager" -d METLAB.QUE.MGR -lf 1024 -lp 3 -ls 2  -u .DLQ METLAB.QUE.MGR'
+
+# command: "{{item}}"
+#  with_items:
+#    - crtmqm -lc -c "LAB MET queue manager" -d METLAB.QUE.MGR -lf 1024 -lp 3 -ls 2 -p 2022 -u .DLQ -ld /mqlogs METLAB.QUE.MGR
+ #  - crtmqm -lc -c "LAB MET queue manager" -d METLAB.QUE.MGR -lf 1024 -lp 3 -ls 2 -p 2022 -u .DLQ -ld /mqlogs METLAB.QUE.MGR
+ # - crtmqm -lc -c "LAB MET queue manager" -d METLAB.QUE.MGR -lf 1024 -lp 3 -ls 2 -p 2022 -u .DLQ -ld /mqlogs -md /mqdata METLAB.QUE.MGR   
+
+#- name: Install WLS using response file
+#shell: sudo su - oracle -c "cd {{ORACLE_STAGE}};. setLocalEnv.sh;./installAll.sh"
+#register: shellout
+#- debug: var=shellout 
+
+#- name: Import MQ QMGR Configs
+#  shell: sudo su - mqm -c 'runmqsc METLAB.QUE.MGR < /tmp/METDEV.QUE.MGR.mqsc'

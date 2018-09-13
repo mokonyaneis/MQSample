@@ -1,0 +1,43 @@
+---
+
+#- name: Copy MQ Client packages
+#  copy:
+#   src: MQClient
+#   dest: /tmp/
+
+#- name: Accept MQ license
+#  command: "{{item}}"
+#  with_items:
+#   - chmod -R +x /tmp/MQClient/ 
+#   - /tmp/MQClient/mqlicense.sh -accept  -text_only 
+
+#- name: Install MQ CLient 
+#  command: "{{item}}"
+#  with_items:
+#   - rpm -ivh /tmp/MQClient/MQSeriesRuntime-7.5.0-2.x86_64.rpm
+#   - rpm -ivh /tmp/MQClient/*.rpm
+
+- name: Configure MQ installation
+  command: /opt/mqm/bin/setmqinst -i -p /opt/mqm/
+ 
+  
+
+#========================================================================
+# Run multiple commands
+#
+# - name: install an apple
+#    command: "{{item}}"
+#    with_items:
+#     - tar -xvzf /tmp/apple.tar.gz creates=/tmp/apple
+#     - /tmp/apple/install.sh --default creates=/etc/apple
+#     - rm -rf /tmp/apple
+#============================================================================
+
+# On AIX
+#-name: Install MQ CLient
+# command: rpm -U "{{rpm}}"
+#  args:
+#    warn: false
+#  register: rpm_install
+#  failed_when: rpm_install.rc != 0 and "is already installed" not in rpm_install.stderr
+#  changed_when: rpm_install.rc == 0
