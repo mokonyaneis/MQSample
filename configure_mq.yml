@@ -7,9 +7,9 @@
    # - { role: create_mq_ChlAuth , tags: [ 'crtChlAuth' ]}
    # - { role: create_mq_CHLS , tags: [ 'crtChls' ]}
    # - { role: create_mq_Lstn , tags: [ 'crtLtnr' ]}
-    - { role: create_mq_QMGR, tags: [ 'crtQmgr' ]}
+   # - { role: create_mq_QMGR, tags: [ 'crtQmgr' ]}
    # - { role: create_mq_Qs , tags: [ 'crtQs' ]}
-    - { role: stop_QMGR , tags: [ 'stpQmgr' ]}
+   # - { role: stop_QMGR , tags: [ 'stpQmgr' ]}
     - { role: start_QMGR , tags: [ 'strQmgr' ]}
    # - { role: stop_Chl , tags: [ 'stpChl' ]}
     #- { role: start_Chl , tags: [ 'strChl' ]}
